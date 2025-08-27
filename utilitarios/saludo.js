@@ -3,22 +3,11 @@ saludar = function(){
     let apellido = recuperarTexto('txtApellido');
     let edad = recuperarInt('txtEdad');
     let estatura = recuperarFloat('txtEstatura');
-}
 
-recuperarTexto = function(idComponente){
-    let componente = document.getElementById(idComponente);
-    let valorIngresado = componente.value;
-    return valorIngresado;
-}
+    let mensajeBienvenida = 'Bienvenido ' + nombre + ' ' + apellido;
+    mostrarTexto('lblResultado', mensajeBienvenida);
 
-recuperarInt = function(idComponente){
-    let valorCaja = recuperarTexto(idComponente)
-    let valorEntero = parseInt(valorCaja);
-    return valorEntero
-}
+    mostrarImagen('imgSaludo', 'hello-hi.gif' )
 
-recuperarFloat = function(idComponente){
-    let valorCaja = recuperarTexto(idComponente)
-    let valorFlotante = parseFloat(valorCaja);
-    return valorFlotante
+    mostrarTextoEnCaja('txtNombre', '');
 }
