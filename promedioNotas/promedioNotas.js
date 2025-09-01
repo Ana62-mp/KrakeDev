@@ -7,11 +7,21 @@ calcularPromedioNotas = function(){
 
     cambiarTexto('lblPromedio', promedio);
 
-    if(promedio > 7){
+    if(0 < promedio && promedio < 5){
+        cambiarImagen('cmpImg','reprobar.gif' );
+        cambiarTexto('cmpMensaje', 'REPROBADO')
+    }
+    else if(5 <= promedio && promedio <= 8){
         cambiarImagen('cmpImg','bien.gif' );
+        cambiarTexto('cmpMensaje', 'BUEN TRABAJO')
+    }
+    else if(8 < promedio && promedio <= 10){
+        cambiarImagen('cmpImg','exce.gif' );
+        cambiarTexto('cmpMensaje', 'EXCELENTE')
     }
     else{
         cambiarImagen('cmpImg', 'mal.gif');
+        cambiarTexto('cmpMensaje', 'DATOS INCORRECTOS')
     }
 
 }
