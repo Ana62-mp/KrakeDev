@@ -96,14 +96,12 @@ campoObl = function(nombreP, cantidadP, precioP){
 }
 
 
-
-
 limpiar = function () {
     mostrarTextoEnCaja('txtProducto', '');
     mostrarTextoEnCaja('txtCantidad', '0');
     mostrarTextoEnCaja('txtPrecio', '0.0');
-    mostrarTextoEnCaja('txtPorcentajeDescuento', '0');
 
+    mostrarTexto('lblNombre', '');
     mostrarTexto('lblSubtotal', '0.0');
     mostrarTexto('lblDescuento', '0.0');
     mostrarTexto('lblValorIVA', '0.0');
