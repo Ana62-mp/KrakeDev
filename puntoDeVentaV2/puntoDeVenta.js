@@ -13,24 +13,18 @@ calcularValorTotal = function () {
     cantidad = recuperarInt('txtCantidad')
     precioProducto = recuperarFloat('txtPrecio')
 
-    if(campoObl(nombreProducto, cantidad, precioProducto)){
-        if(esProductoValido(nombreProducto) & esCantidadValida(cantidad) & esPrecioValido(precioProducto)){
-            mostrarTexto('lblNombre', nombreProducto);
-            valorSubtotal = calcularSubtotal(precioProducto, cantidad);
-            mostrarTexto('lblSubtotal', valorSubtotal.toFixed(2));
-            valorDescuento = calcularDescuentoPorVolumen(valorSubtotal, cantidad);
-            mostrarTexto('lblDescuento', valorDescuento);
-            valorIVA = calcularIva(valorSubtotal - valorDescuento);
-            mostrarTexto('lblValorIVA', valorIVA.toFixed(3));
-            valorTotal = calcularTotal(valorSubtotal, valorDescuento, valorIVA);
-            mostrarTexto('lblTotal', valorTotal.toFixed(2));
-        }else{
-        mostrarTexto('lblSubtotal', '0.0');
-        mostrarTexto('lblDescuento', '0.0');
-        mostrarTexto('lblValorIVA', '0.0');
-        mostrarTexto('lblTotal', '0.0');
-        }
+    if(campoObl(nombreProducto, cantidad, precioProducto) && esProductoValido(nombreProducto) & esCantidadValida(cantidad) & esPrecioValido(precioProducto)){
+        mostrarTexto('lblNombre', nombreProducto);
+        valorSubtotal = calcularSubtotal(precioProducto, cantidad);
+        mostrarTexto('lblSubtotal', valorSubtotal.toFixed(2));
+        valorDescuento = calcularDescuentoPorVolumen(valorSubtotal, cantidad);
+        mostrarTexto('lblDescuento', valorDescuento);
+        valorIVA = calcularIva(valorSubtotal - valorDescuento);
+        mostrarTexto('lblValorIVA', valorIVA.toFixed(3));
+        valorTotal = calcularTotal(valorSubtotal, valorDescuento, valorIVA);
+        mostrarTexto('lblTotal', valorTotal.toFixed(2));
     }else{
+        mostrarTexto('lblNombre', '');
         mostrarTexto('lblSubtotal', '0.0');
         mostrarTexto('lblDescuento', '0.0');
         mostrarTexto('lblValorIVA', '0.0');
