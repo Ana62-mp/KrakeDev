@@ -1,3 +1,9 @@
 Soy el archivo a1 HOLAAA
 
 soy otro archivo o el mismo
+
+
+<div class="contenedorBoton">
+                    <input type="button" value="LIMPIAR"
+                     class="estiloBoton" onclick="limpiar();" />
+                </div>   
