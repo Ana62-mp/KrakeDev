@@ -125,3 +125,8 @@ body{
     font-style: italic;
     font-size: 16px;
 }
+
+
+#lblProvinciaError{
+    color:red;
+}
