@@ -1,0 +1,136 @@
+body{
+    background-image: url("./images/fondo.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.opc{
+    font-size: 40px;
+    color: darkblue;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo{
+    font-size: 60px;
+    color: rgb(175, 208, 216);
+    font-family:fantasy;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.titulo2{
+    font-size: 30px;
+    color: rgb(175, 208, 216);
+    font-family:fantasy;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.titulo3 span{
+    font-size: 50px;
+    color: rgb(255, 180, 82);
+    margin-left: 30px;
+    font-family:fantasy;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.titulo4{
+    font-size: 80px;
+    color: rgb(255, 106, 0);
+    font-family:fantasy;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+.logo{
+    width:200px;
+    margin: 20px;
+    
+}
+
+.contenedorImagen{
+    background-color: rgba(62, 68, 126, 0.7);
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.resultado{
+    font-size: 40px;
+    color: darkblue; 
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.textoPartida{
+    font-size: 80px;
+    color: rgb(251, 255, 0);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-right: 50px;
+    margin-top: 50px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.boton{
+    background-color: #1e00ff; 
+    border: none;
+    color: white;
+    padding: 15px;
+    padding-inline: 150px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.botonDiv{
+    padding: 50px;
+    text-align: center;
+}
+
+.boton:hover {
+    background-color:white; 
+    color: #1e00ff;
+    border:1px;
+    border-color: #1e00ff;
+    border-radius: 5px;
+}
+.boton:active{
+    background-color: #1e00ff; 
+    border: none;
+    color: white;
+    padding: 15px;
+    padding-inline: 150px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 5px;
+
+}

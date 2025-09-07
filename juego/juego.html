@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="juego.css"/>
+        <script src="utilitarios.js"></script>
+        <script src="serviciosJuego.js"></script>
+        <script src="juego.js"></script>
+    </head>
+
+
+    <body>
+        <div>
+            <div class="titulo">
+                JUEGA PIEDRA, PAPEL O TIJERA
+            </div>
+            <div class="opc">
+                <div class="contenedorImagen">
+                    <input type="image" src=".\images\piedra.png" class="logo" onclick="jugar('Piedra');">
+                </div>
+                <div class="contenedorImagen">
+                    <input type="image" src=".\images\tijera.png" class="logo" onclick="jugar('Tijera');">
+                </div>
+                <div class="contenedorImagen">
+                    <input type="image" src=".\images\papel.png" class="logo" onclick="jugar('Papel');">
+                </div>
+            </div> 
+
+            <div class="opc">
+                <div class="resultado">
+                    <div class="titulo2">
+                       LA COMPUTADORA A SACADO:
+                    </div>
+                    <div class="contenedorImagen">
+                        <img src="" class="logo" id="imgObjeto">
+                    </div>
+                </div>
+                
+                
+                <div class="resultado">
+                    <div class="textoPartida" id="lblGanador">
+                    ...
+                </div>
+                    <div class="titulo3">
+                       <span>Puntaje Usuario:</span>
+                       <span id="lblPuntosUsuario">0</span> 
+                    </div>
+                    <div class="titulo3">
+                        <span>Puntaje Computadora:</span>
+                        <span id="lblPuntosCompu">0</span>
+                    </div>
+                </div>
+
+                <div class="titulo4">
+                    <span id="txtGanador"></span>
+                </div>
+            </div> 
+
+            <div class="botonDiv">
+
+                <input type="button" value="NUEVA PARTIDA" class="boton" onclick="limpiar();">
+            </div>
+
+            
+            
+                
+        </div>
+    </body>
+
+
+</html>
