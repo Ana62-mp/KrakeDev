@@ -36,3 +36,21 @@ recorrerCadenaInversa = function(cadena){
     }
     return mensajeCompleto;
 }
+
+buscarLetra = function(cadena, letra){
+    let existeLetra = false;
+    let caracterIterado;
+    for(let i=0;i<cadena.length;i++){
+        caracterIterado = cadena.charAt(i)
+        if(caracterIterado == letra){
+            existeLetra = true;
+        }
+    }
+    if(existeLetra == true){
+        console.log('EXISTE')
+        return true;
+    }else{
+        console.log('NO EXISTE')
+        return false;
+    }
+}
