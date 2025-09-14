@@ -1,6 +1,7 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
 
 let palabraSecreta;
+let letrasEncontradas;
 
 esMayuscula = function(caracter){
     let esMayus = true;
@@ -29,6 +30,24 @@ guardarPalabra = function(){
         mostrarTexto('txtError', '')
     }else{
         mostrarTexto('txtError', 'Ingresa palabra de 5 letras mayúsculas')
+    }
+}
+
+mostrarLetra = function(letra, posicion){
+    if(posicion == 0){
+        mostrarTexto("div0", letra)    
+    }
+    if(posicion == 1){
+        mostrarTexto("div1", letra)    
+    }
+    if(posicion == 2){
+        mostrarTexto("div2", letra)    
+    }
+    if(posicion == 3){
+        mostrarTexto("div3", letra)    
+    }
+    if(posicion == 4){
+        mostrarTexto("div4", letra)    
     }
 }
 
