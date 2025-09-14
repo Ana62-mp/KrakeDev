@@ -2,6 +2,9 @@
 
 let palabraSecreta;
 let letrasEncontradas;
+let intentos;
+let coincidencias;
+let errores = 0;
 
 esMayuscula = function(caracter){
     let esMayus = true;
@@ -57,14 +60,25 @@ validar = function(letra){
         if(caracterIterado == letra){
             mostrarLetra(letra, i);
             letrasEncontradas += 1;
+            coincidencias += 1;
+        }else{
+            alert('LA LETRA NO ES PARTE DE LA PALABRA');
+            errores +=1;
         }
     }
+
 }
 
 ingresarLetra = function(){
+    intentos += 1
     letra = recuperarTexto('txtLetra');
     if(esMayuscula(letra)){
         validar(letra);
+        if(coincidencias == 5){
+            alert('HA GANADO');
+        }else if(coincidencias == 10){
+            alert('HA PERDIDO');
+        }
     }else{
         alert('SOLO SE ACEPTAN MAYÚSCULAS');
     }
