@@ -51,3 +51,21 @@ mostrarLetra = function(letra, posicion){
     }
 }
 
+validar = function(letra){
+    for(i=0;i<5;i++){
+        let caracterIterado = palabraSecreta.charAt(i);
+        if(caracterIterado == letra){
+            mostrarLetra(letra, i);
+            letrasEncontradas += 1;
+        }
+    }
+}
+
+ingresarLetra = function(){
+    letra = recuperarTexto('txtLetra');
+    if(esMayuscula(letra)){
+        validar(letra);
+    }else{
+        alert('SOLO SE ACEPTAN MAYÚSCULAS');
+    }
+}
