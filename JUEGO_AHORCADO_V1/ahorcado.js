@@ -30,9 +30,8 @@ guardarPalabra = function(){
     if(palabra.length == 5 && esMayus){
         palabraSecreta = palabra;
         console.log(palabraSecreta);
-        mostrarTexto('txtError', '')
     }else{
-        mostrarTexto('txtError', 'Ingresa palabra de 5 letras mayúsculas')
+        alert('Ingresa palabra de 5 letras mayúsculas')
     }
 }
 
@@ -59,12 +58,13 @@ validar = function(letra){
         let caracterIterado = palabraSecreta.charAt(i);
         if(caracterIterado == letra){
             mostrarLetra(letra, i);
-            letrasEncontradas += 1;
+            letrasEncontradas = true;
             coincidencias += 1;
-        }else{
-            alert('LA LETRA NO ES PARTE DE LA PALABRA');
-            errores +=1;
         }
+    }
+    if(!letrasEncontradas){
+        alert('LA LETRA NO ES PARTE DE LA PALABRA');
+        errores +=1;
     }
 
 }
