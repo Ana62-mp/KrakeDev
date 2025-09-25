@@ -1,8 +1,8 @@
 let esNuevo = false;
 let empleados = [
-    {cedula:"1714616123",nombre:"John",apellido:"Cena",sueldo:500.0},
-    {cedula:"0914632123",nombre:"Luisa",apellido:"Gonzalez",sueldo:900.0},
-    {cedula:"1752724747",nombre:"Laura",apellido:"Lazo",sueldo:750.0}
+    {cedula:"1714616123",nombre:"JOHN",apellido:"CENA",sueldo:500.0},
+    {cedula:"0914632123",nombre:"LUISA",apellido:"GONZALES",sueldo:900.0},
+    {cedula:"1752724747",nombre:"LAURA",apellido:"LAZO",sueldo:750.0}
 ]
 
 mostrarEmpleado = function(){
@@ -69,6 +69,7 @@ mostrarOpcionResumen = function(){
 
 ejecutarNuevo = function(){
     esNuevo = true;
+    limpiarErroresGuardar
     habilitarComponente('txtCedula');
     habilitarComponente('txtNombre');
     habilitarComponente('txtApellido');
@@ -175,13 +176,51 @@ guardar = function(){
                 alert('EMPLEADO GUARDADO CORRECTAMENTE')
                 mostrarEmpleado();
                 deshabilitarIngresoDatos();
+                esNuevo = false;
             }else{
                 alert('YA EXISTE UN EMPLEADO CON LA CEDULA ' + valorCedula);
             }
 
+        }else{
+            empleadoBuscado = buscarEmpleado(valorCedula);
+            empleadoBuscado.nombre = valorNombre;
+            empleadoBuscado.apellido = valorApellido;
+            empleadoBuscado.sueldo = valorSueldo;
+            alert('EMPLEADO MODIFICADO EXITOSAMENTE');
+            mostrarEmpleado();
+            deshabilitarIngresoDatos();
         }
+        
     }
-    
 
 
+}
+
+ejecutarBusqueda = function(){
+    let valorCedula = recuperarTexto('txtBusquedaCedula');
+    let empleadoBuscado = buscarEmpleado(valorCedula);
+    if(empleadoBuscado == null){
+        alert('EMPLEADO NO EXISTE')
+    }else{
+        mostrarTextoEnCaja('txtCedula', empleadoBuscado.cedula);
+        mostrarTextoEnCaja('txtNombre', empleadoBuscado.nombre);
+        mostrarTextoEnCaja('txtApellido', empleadoBuscado.apellido);
+        mostrarTextoEnCaja('txtSueldo', empleadoBuscado.sueldo);
+
+        habilitarComponente('txtNombre');
+        habilitarComponente('txtApellido');
+        habilitarComponente('txtSueldo');
+        habilitarComponente('btnGuardar');
+        deshabilitarComponente('txtCedula');
+    }
+}
+
+limpiar = function(){
+    esNuevo = false;
+    mostrarTextoEnCaja('txtCedula', '');
+    mostrarTextoEnCaja('txtNombre', '');
+    mostrarTextoEnCaja('txtApellido', '');
+    mostrarTextoEnCaja('txtSueldo', '');
+    deshabilitarIngresoDatos();
+    limpiarErroresGuardar();
 }
