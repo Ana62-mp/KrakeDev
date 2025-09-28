@@ -263,6 +263,8 @@ calcularRol = function(){
         let valorAPagar = calcularValorAPagar(valorSueldo, aporteIess, valorDescuento);
         mostrarTexto('infoPago', valorAPagar.toFixed(2));
         habilitarComponente('btnGuardarRol');
+    }else{
+        mostrarTexto('lblErrorDescuentos', 'El valor del descuento debe\nser un número mayor a 0 y\nmenor a su sueldo')
     }
 
 }
