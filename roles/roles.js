@@ -5,6 +5,9 @@ let empleados = [
     {cedula:"1752724747",nombre:"LAURA",apellido:"LAZO",sueldo:750.0}
 ]
 
+let roles = []
+
+
 mostrarEmpleado = function(){
     let cmpTabla = document.getElementById('tablaEmpleados');
     let contenidoTabla = '<table><tr>'+
@@ -59,7 +62,9 @@ mostrarOpcionRol = function(){
     mostrarComponente('divRol')
     ocultarComponente('divEmpleado')
     ocultarComponente('divResumen')
+    deshabilitarComponente('btnGuardarRol')
 }
+
 mostrarOpcionResumen = function(){
     mostrarComponente('divResumen')
     ocultarComponente('divRol')
@@ -256,6 +261,55 @@ calcularRol = function(){
         mostrarTexto('infoIESS', aporteIess.toFixed(2));
         let valorAPagar = calcularValorAPagar(valorSueldo, aporteIess, valorDescuento);
         mostrarTexto('infoPago', valorAPagar.toFixed(2));
+        habilitarComponente('btnGuardarRol');
     }
 
+}
+
+buscarRol = function(cedula){
+    let elementoRol;
+    let rolEncontrado = null;
+    for(let i=0;i<roles.length;i++){
+        elementoRol = roles[i]
+        if(elementoRol.cedula == cedula){
+            rolEncontrado = elementoRol;
+            break;
+        }
+    }
+    return rolEncontrado;
+}
+
+agregarRol = function(rol){
+    let resultado = buscarRol(rol.cedula);
+    if(resultado == null){
+        roles.push(rol);
+    }else{
+        alert('ERROR, NO SE PUEDE AGREGAR UN ROL YA EXISTENTE')
+    }
+}
+
+calcularAporteEmpleador = function(sueldo){
+    pagoEmpleadorIess = (sueldo * 11.15)/100;
+    return pagoEmpleadorIess;
+}
+
+guardarRol = function(){
+    let valorMontoAPagar = recuperarFloatDiv('infoPago');
+    let valorAporteIessEmpleado = recuperarFloatDiv('infoIESS');
+    let valorNombre = recuperarTextoDiv('infoNombre');
+    let valorCedula = recuperarTextoDiv('infoCedula');
+    let valorSueldo = recuperarFloatDiv('infoSueldo');
+    let valorAporteEmpleador = calcularAporteEmpleador(valorSueldo);
+    let rol = {};
+
+    rol.cedula = valorCedula;
+    rol.nombre = valorNombre;
+    rol.sueldo = valorSueldo;
+    rol.valorAPagar = valorMontoAPagar;
+    rol.aporteEmpleado = valorAporteIessEmpleado
+    rol.aporteEmpleador = valorAporteEmpleador;
+
+    agregarRol(rol);
+    alert('EL ROL SE HA GUARDADO CON EXITO');
+    deshabilitarComponente('btnGuardarRol')
 }
