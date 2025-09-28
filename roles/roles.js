@@ -70,7 +70,6 @@ mostrarOpcionResumen = function(){
     mostrarComponente('divResumen')
     ocultarComponente('divRol')
     ocultarComponente('divEmpleado')
-    mostrarRoles();
 }
 
 
@@ -251,7 +250,7 @@ calcularAporteEmpleado = function(sueldo){
 
 calcularValorAPagar = function(sueldo, aporteIess, descuento){
     let valorAPagarEmpleado = sueldo - aporteIess - descuento;
-    return valorAPagarEmpleado;
+    return parseFloat(valorAPagarEmpleado.toFixed(2));
 }
 
 calcularRol = function(){
@@ -314,6 +313,7 @@ guardarRol = function(){
 
     agregarRol(rol);
     deshabilitarComponente('btnGuardarRol')
+    mostrarRoles();
 }
 
 mostrarRoles = function(){
@@ -345,15 +345,18 @@ mostrarRoles = function(){
 mostrarTotales = function(){
     let totalEmpleado = 0;
     let totalEmpleador = 0;
-    let totalAPagar;
+    let totalAPagar = 0;
     let elementoRol;
     for(let i=0;i<roles.length;i++){
         elementoRol = roles[i]
         totalEmpleado += elementoRol.aporteEmpleado;
         totalEmpleador += elementoRol.aporteEmpleador;
+        totalAPagar += elementoRol.valorAPagar;
     }
 
-    mostrarTexto('infoTotalPago', 'si sale');
+    let totalNomina = totalAPagar + totalEmpleado + totalEmpleador;
+    mostrarTexto('infoTotalPago', totalAPagar);
     mostrarTexto('infoAporteEmpresa', totalEmpleador);
     mostrarTexto('infoAporteEmpleado', totalEmpleado.toFixed(2));
+    mostrarTexto('infoTotalNomina', totalNomina);
 }
